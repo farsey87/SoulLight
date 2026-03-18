@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulLight Academy – Business Konzept & Ideenguide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #a78bfa;
+            --accent: #c084fc;
+            --bg: #0a0a1a;
+            --bg-card: #12122a;
+            --bg-alt: #0d0d25;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --gold: #fbbf24;
+            --green: #34d399;
+            --blue: #38bdf8;
+            --pink: #f472b6;
+            --orange: #fb923c;
+            --gradient: linear-gradient(135deg, #8b5cf6, #c084fc, #f0abfc);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font: 'Inter', -apple-system, sans-serif;
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== SIDEBAR NAV ===== */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: rgba(12, 12, 30, 0.97);
+            border-right: 1px solid rgba(139, 92, 246, 0.15);
+            padding: 32px 20px;
+            overflow-y: auto;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-logo {
+            font-family: var(--font-h);
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .sidebar-logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            text-decoration: none;
+            color: var(--text-muted);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--text);
+        }
+
+        .sidebar-link .link-emoji { font-size: 1.1rem; min-width: 24px; }
+
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 200;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            color: var(--text);
+            font-size: 1.3rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main { margin-left: 260px; }
+
+        .page-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg) 0%, #1a0a2e 50%, var(--bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 60%);
+        }
+
+        .page-header * { position: relative; z-index: 1; }
+
+        .page-header h1 {
+            font-family: var(--font-h);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .gt { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* ===== SECTION TITLES ===== */
+        .sec-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .sec-title .emoji { font-size: 2.2rem; }
+
+        .sec-title h2 {
+            font-family: var(--font-h);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+        }
+
+        .sec-title .line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.3), transparent);
+        }
+
+        /* ===== IDEA CARDS ===== */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .idea-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
+        }
+
+        .idea-card .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .idea-card .card-icon { font-size: 2.5rem; }
+
+        .idea-card .card-tag {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag-chef {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .tag-arbeiter {
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--green);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .tag-beide {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--primary-light);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .tag-tipp {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--blue);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .idea-card h3 {
+            font-family: var(--font-h);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .idea-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .idea-steps {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .idea-steps li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.88rem;
+            color: var(--text);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .idea-steps li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+        }
+
+        .idea-card .money {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* ===== ROLE BOXES ===== */
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .role-box {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 36px;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .role-box h3 {
+            font-family: var(--font-h);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .role-box .role-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .task-list { list-style: none; }
+
+        .task-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.9rem;
+        }
+
+        .task-list li:last-child { border-bottom: none; }
+
+        .task-check {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border-radius: 6px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 2px;
+            font-size: 0.7rem;
+        }
+
+        .task-check.checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* ===== PRICE TABLE ===== */
+        .price-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 32px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .price-table thead th {
+            background: rgba(139, 92, 246, 0.15);
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .price-table tbody td {
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: var(--bg-card);
+        }
+
+        .price-table tbody tr:hover td {
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 48px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 28px;
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: var(--radius);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 32px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg);
+        }
+
+        .timeline-item h4 {
+            font-family: var(--font-h);
+            font-size: 1.15rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .time-sub {
+            color: var(--primary-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline-item .time-goal {
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: rgba(52, 211, 153, 0.08);
+            border-radius: 8px;
+            color: var(--green);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ===== QUICK TIP BOXES ===== */
+        .tip-box {
+            padding: 24px 28px;
+            border-radius: var(--radius);
+            margin-bottom: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .tip-box.tip-gold {
+            background: rgba(251, 191, 36, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .tip-box.tip-green {
+            background: rgba(52, 211, 153, 0.06);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .tip-box.tip-blue {
+            background: rgba(56, 189, 248, 0.06);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .tip-box.tip-pink {
+            background: rgba(244, 114, 182, 0.06);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        .tip-box .tip-icon { font-size: 1.8rem; min-width: 36px; }
+
+        .tip-box h4 { font-size: 1rem; margin-bottom: 6px; }
+        .tip-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: var(--radius);
+            padding: 28px;
+            text-align: center;
+        }
+
+        .stat-item .stat-num {
+            font-family: var(--font-h);
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ===== ACCORDION ===== */
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: var(--font);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .accordion-header:hover { background: rgba(139, 92, 246, 0.05); }
+
+        .accordion-toggle {
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.open .accordion-toggle { transform: rotate(45deg); }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-body-inner {
+            padding: 0 24px 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .accordion-body-inner ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .accordion-body-inner ul li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .accordion-body-inner ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-size: 0.7rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .konzept-footer {
+            text-align: center;
+            padding: 60px 0;
+            background: #060612;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .konzept-footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            padding: 14px 24px;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font);
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.6);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-toggle { display: flex; }
+            .main { margin-left: 0; }
+            .role-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .ideas-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .stats-bar { grid-template-columns: 1fr; }
+            .price-table { font-size: 0.8rem; }
+            .price-table thead th, .price-table tbody td { padding: 10px 12px; }
+        }
+
+        @media print {
+            .sidebar, .sidebar-toggle, .print-btn { display: none !important; }
+            .main { margin-left: 0; }
+            body { background: #fff; color: #1a1a1a; }
+            .idea-card, .role-box, .stat-item, .timeline-item, .tip-box, .accordion-item {
+                background: #f8f8f8;
+                border-color: #ddd;
+                break-inside: avoid;
+            }
+            .gt { color: #7c3aed !important; -webkit-text-fill-color: #7c3aed !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- AUTH CHECK -->
+    <div id="authWall" style="display:flex;align-items:center;justify-content:center;min-height:100vh;position:fixed;inset:0;z-index:9999;background:#0a0a1a;">
+        <div style="text-align:center;">
+            <div style="font-size:3rem;margin-bottom:16px;">🔒</div>
+            <p style="color:#94a3b8;margin-bottom:20px;">Zugriff nur für autorisierte Benutzer</p>
+            <a href="login.html" style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#8b5cf6,#c084fc);color:#fff;text-decoration:none;border-radius:50px;font-family:Inter,sans-serif;font-weight:500;">Zum Login →</a>
+        </div>
+    </div>
+    <script>
+        (function(){
+            const token = sessionStorage.getItem('sl_auth');
+            if (token === 'd318db29ff88f038bc4ff40e231a06b18314f38a67e0e6dab5f23a3b9b8eef92') {
+                document.getElementById('authWall').remove();
+            } else {
+                document.querySelectorAll('body > *:not(#authWall):not(script)').forEach(el => el.style.display = 'none');
+            }
+        })();
+    </script>
+
+    <!-- SIDEBAR TOGGLE -->
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+    <!-- ===== SIDEBAR ===== -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">✦ <span>SoulLight</span></div>
+        <div class="sidebar-sub">Business Konzept</div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Übersicht</div>
+            <a href="#header" class="sidebar-link"><span class="link-emoji">🏠</span> Start</a>
+            <a href="#vision" class="sidebar-link"><span class="link-emoji">🌟</span> Vision & Mission</a>
+            <a href="#rollen" class="sidebar-link"><span class="link-emoji">👤</span> Rollen: Chef & Arbeiter</a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Angebote</div>
+            <a href="#hypnose" class="sidebar-link"><span class="link-emoji">🧠</span> Hypnose</a>
+            <a href="#karma" class="sidebar-link"><span class="link-emoji">🔓</span> Karmaauflösung</a>
+            <a href="#reinkarnation" class="sidebar-link"><span class="link-emoji">🔄</span> Reinkarnation</a>
+            <a href="#healing" class="sidebar-link"><span class="link-emoji">✨</span> Spirit Healing</a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Business</div>
+            <a href="#pakete" class="sidebar-link"><span class="link-emoji">📦</span> Pakete & Preise</a>
+            <a href="#ideen-chef" class="sidebar-link"><span class="link-emoji">👑</span> Ideen für den Chef</a>
+            <a href="#ideen-arbeiter" class="sidebar-link"><span class="link-emoji">🛠️</span> Ideen für Arbeiter</a>
+            <a href="#tagesablauf" class="sidebar-link"><span class="link-emoji">📅</span> Tagesablauf</a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Wachstum</div>
+            <a href="#marketing" class="sidebar-link"><span class="link-emoji">📣</span> Marketing</a>
+            <a href="#wachstum" class="sidebar-link"><span class="link-emoji">📈</span> Wachstumsplan</a>
+            <a href="#tools" class="sidebar-link"><span class="link-emoji">🔧</span> Tools & Technik</a>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main">
+
+        <!-- HEADER -->
+        <header class="page-header" id="header">
+            <div class="container">
+                <p style="color: var(--primary-light); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;">Business Konzept & Ideenguide</p>
+                <h1>SoulLight <span class="gt">Academy</span></h1>
+                <p>Dein kompletter Leitfaden für den Aufbau eines erfolgreichen spirituellen Online-Business – mit konkreten Ideen und Aufgaben für Chef & Team.</p>
+            </div>
+        </header>
+
+        <!-- STATS OVERVIEW -->
+        <section class="page-section" style="padding-top: 48px; padding-bottom: 48px;">
+            <div class="container">
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-num">4</div>
+                        <div class="stat-label">Haupt-Bereiche</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">24+</div>
+                        <div class="stat-label">Einzelne Angebote</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">7</div>
+                        <div class="stat-label">Einnahmequellen</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">30k</div>
+                        <div class="stat-label">€ Ziel/Monat (Jahr 2)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION -->
+        <section class="page-section" id="vision">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🌟</span>
+                    <h2>Vision & <span class="gt">Mission</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="role-grid">
+                    <div class="tip-box tip-gold">
+                        <span class="tip-icon">🔭</span>
+                        <div>
+                            <h4>Vision</h4>
+                            <p>Menschen weltweit dabei unterstützen, ihre innere Kraft zu entfalten, karmische Blockaden aufzulösen und ihre Seele zu heilen – digital, zugänglich und transformativ.</p>
+                        </div>
+                    </div>
+                    <div class="tip-box tip-green">
+                        <span class="tip-icon">🎯</span>
+                        <div>
+                            <h4>Mission</h4>
+                            <p>Durch professionelle spirituelle Dienstleistungen über Zoom, Livestreams und Telegram-Communities eine ganzheitliche Heilungsreise ermöglichen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROLLEN -->
+        <section class="page-section" id="rollen">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">👤</span>
+                    <h2>Rollen im <span class="gt">Team</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="role-grid">
+                    <div class="role-box" style="border-color: rgba(251, 191, 36, 0.3);">
+                        <h3><span>👑</span> Chef / Gründer:in</h3>
+                        <p class="role-desc">Visionär, Hauptheiler:in, Strategieplaner:in – das Herz des Business</p>
+                        <ul class="task-list">
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Sessions durchführen (Hypnose, Karma, etc.)</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Preisstrategie & Pakete festlegen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Content-Strategie bestimmen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Livestreams & Events leiten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Premium-Klienten persönlich betreuen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Neue Angebote & Kurse entwickeln</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Team aufbauen & anleiten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Kooperationen & Partnerschaften eingehen</li>
+                        </ul>
+                    </div>
+
+                    <div class="role-box" style="border-color: rgba(52, 211, 153, 0.3);">
+                        <h3><span>🛠️</span> Arbeiter / Assistent:in</h3>
+                        <p class="role-desc">Unterstützung im Tagesgeschäft – organisiert, technikaffin, zuverlässig</p>
+                        <ul class="task-list">
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Telegram-Gruppen moderieren</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Termine koordinieren & Zoom-Links senden</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Social Media Posts erstellen & planen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Kunden-Anfragen beantworten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Rechnungen & Zahlungen verwalten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Grafiken in Canva erstellen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Telegram-Bot pflegen & aktualisieren</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> Feedback sammeln & dokumentieren</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HYPNOSE -->
+        <section class="page-section" id="hypnose">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🧠</span>
+                    <h2>Hypnose – <span class="gt">Angebote & Ideen</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Angebot</th>
+                            <th>Format</th>
+                            <th>Dauer</th>
+                            <th>Preis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Einzel-Hypnose-Session</td><td>Zoom 1:1</td><td>60-90 Min</td><td>120–180 €</td></tr>
+                        <tr><td>Gruppen-Hypnose</td><td>Zoom Gruppe</td><td>60 Min</td><td>35–55 € p.P.</td></tr>
+                        <tr><td>Hypnose-Kurs (4 Wochen)</td><td>Zoom + Telegram</td><td>4x 90 Min</td><td>349 €</td></tr>
+                        <tr><td>Selbsthypnose lernen</td><td>Aufgezeichnet</td><td>6 Module</td><td>199 €</td></tr>
+                        <tr><td>Raucherentwöhnung</td><td>Zoom 1:1</td><td>2x 90 Min</td><td>280 €</td></tr>
+                        <tr><td>Gewichtsreduktion</td><td>Zoom 1:1</td><td>3x 60 Min</td><td>350 €</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🎙️</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>Hypnose-Podcast starten</h3>
+                        <p>Wöchentliche kurze Hypnose-Audios (10-15 Min) als Podcast veröffentlichen. Baut Reichweite und Vertrauen auf.</p>
+                        <ul class="idea-steps">
+                            <li>5 Themen planen (Schlaf, Selbstvertrauen, Stress, etc.)</li>
+                            <li>Mit Handy + ruhigem Raum aufnehmen</li>
+                            <li>Auf Spotify & Apple Podcasts hochladen</li>
+                            <li>In Telegram-Gruppe promoten</li>
+                        </ul>
+                        <span class="money">💰 Kostenlos → Leads generieren</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📦</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>Themen-Pakete schnüren</h3>
+                        <p>Spezielle Hypnose-Pakete für bestimmte Probleme – höherer Wert, weniger Einzelbuchungen nötig.</p>
+                        <ul class="idea-steps">
+                            <li>„Angstfrei in 4 Wochen" – 4 Sessions + Audios</li>
+                            <li>„Schlaf-Reset" – 3 Sessions + Einschlaf-Meditation</li>
+                            <li>„Selbstliebe-Reise" – 5 Sessions + Workbook</li>
+                        </ul>
+                        <span class="money">💰 300–500 € pro Paket</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📱</span>
+                            <span class="card-tag tag-arbeiter">Arbeiter-Aufgabe</span>
+                        </div>
+                        <h3>Hypnose-Audios editieren</h3>
+                        <p>Die aufgenommenen Sessions mit Hintergrundmusik unterlegen und als MP3 für Klienten bereitstellen.</p>
+                        <ul class="idea-steps">
+                            <li>Audacity (kostenlos) installieren</li>
+                            <li>Rauschen entfernen, Musik hinzufügen</li>
+                            <li>Als MP3 exportieren</li>
+                            <li>Über Telegram oder Google Drive teilen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARMA -->
+        <section class="page-section" id="karma">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🔓</span>
+                    <h2>Blockaden & <span class="gt">Karmaauflösung</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <table class="price-table">
+                    <thead>
+                        <tr><th>Angebot</th><th>Format</th><th>Dauer</th><th>Preis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Karma-Reading & Analyse</td><td>Zoom 1:1</td><td>60 Min</td><td>150 €</td></tr>
+                        <tr><td>Karmische Auflösungs-Session</td><td>Zoom 1:1</td><td>90 Min</td><td>200 €</td></tr>
+                        <tr><td>Blockaden-Clearing Intensiv</td><td>Zoom 1:1</td><td>2x 90 Min</td><td>350 €</td></tr>
+                        <tr><td>Gruppen-Karma-Clearing</td><td>Zoom Gruppe</td><td>90 Min</td><td>45 € p.P.</td></tr>
+                        <tr><td>21-Tage Karma-Detox</td><td>Telegram + Zoom</td><td>21 Tage</td><td>449 €</td></tr>
+                        <tr><td>Ahnenlinien-Heilung</td><td>Zoom 1:1</td><td>120 Min</td><td>250 €</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🗓️</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>21-Tage Challenge auf Telegram</h3>
+                        <p>Jeden Tag eine kleine Karma-Übung, Meditation oder Reflexion. Am Ende: Angebot für tiefere Session.</p>
+                        <ul class="idea-steps">
+                            <li>21 tägliche Aufgaben vorbereiten</li>
+                            <li>Täglich um 8 Uhr per Bot posten</li>
+                            <li>Teilnehmer teilen Erfahrungen in Gruppe</li>
+                            <li>Tag 21: Spezial-Angebot für 1:1 Session</li>
+                        </ul>
+                        <span class="money">💰 449 € pro Teilnehmer</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📊</span>
+                            <span class="card-tag tag-arbeiter">Arbeiter-Aufgabe</span>
+                        </div>
+                        <h3>Karma-Analyse Fragebogen erstellen</h3>
+                        <p>Online-Fragebogen, den Klienten vor der Session ausfüllen – spart Zeit und verbessert die Session.</p>
+                        <ul class="idea-steps">
+                            <li>Google Forms Fragebogen erstellen</li>
+                            <li>15-20 Fragen zu Lebensthemen</li>
+                            <li>Automatisch per Mail an Chef senden</li>
+                            <li>Link in Buchungsbestätigung einbauen</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🌕</span>
+                            <span class="card-tag tag-beide">Chef + Team</span>
+                        </div>
+                        <h3>Vollmond Karma-Release Events</h3>
+                        <p>Monatliche Live-Events zum Vollmond – perfekt für Gruppen-Clearings und Community-Building.</p>
+                        <ul class="idea-steps">
+                            <li>Vollmond-Kalender im Voraus planen</li>
+                            <li>Event über Zoom + Telegram bewerben</li>
+                            <li>Arbeiter: Grafiken erstellen, Anmeldung verwalten</li>
+                            <li>Chef: Event durchführen & nachbereiten</li>
+                        </ul>
+                        <span class="money">💰 25-45 € p.P. × 20+ Teilnehmer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REINKARNATION -->
+        <section class="page-section" id="reinkarnation">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🔄</span>
+                    <h2>Reinkarnation & <span class="gt">Rückführung</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <table class="price-table">
+                    <thead>
+                        <tr><th>Angebot</th><th>Format</th><th>Dauer</th><th>Preis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Rückführung Einzel-Session</td><td>Zoom 1:1</td><td>120 Min</td><td>220 €</td></tr>
+                        <tr><td>Rückführungs-Paket (3 Sessions)</td><td>Zoom 1:1</td><td>3x 120 Min</td><td>550 €</td></tr>
+                        <tr><td>Gruppen-Rückführung</td><td>Zoom Gruppe</td><td>90 Min</td><td>40 € p.P.</td></tr>
+                        <tr><td>Rückführung & Integration</td><td>Zoom + Telegram</td><td>2 Wochen</td><td>380 €</td></tr>
+                        <tr><td>Seelen-Reise Workshop</td><td>Livestream</td><td>3 Stunden</td><td>65 €</td></tr>
+                        <tr><td>Past-Life-Reading</td><td>Zoom 1:1</td><td>45 Min</td><td>120 €</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📖</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>„Seelentagebuch" als digitales Produkt</h3>
+                        <p>Ein PDF-Workbook, das Klienten zwischen den Sessions nutzen – mit Reflexionsfragen und Übungen.</p>
+                        <ul class="idea-steps">
+                            <li>30 Seiten Workbook in Canva gestalten</li>
+                            <li>Reflexionsfragen zu vergangenen Leben</li>
+                            <li>Traumtagebuch-Seiten integrieren</li>
+                            <li>Als Bonus zu Paketen oder einzeln verkaufen</li>
+                        </ul>
+                        <span class="money">💰 29 € einzeln / Gratis bei Paket</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🎬</span>
+                            <span class="card-tag tag-beide">Chef + Team</span>
+                        </div>
+                        <h3>YouTube-Serie: „Vergangene Leben"</h3>
+                        <p>Anonymisierte Fallstudien von Rückführungen als fesselnde Videos – zieht neue Klienten an.</p>
+                        <ul class="idea-steps">
+                            <li>Chef: Fälle auswählen & erzählen</li>
+                            <li>Arbeiter: Videos schneiden & hochladen</li>
+                            <li>Mystische Thumbnail-Grafiken erstellen</li>
+                            <li>Link zu Booking in Beschreibung</li>
+                        </ul>
+                        <span class="money">💰 Kostenlos → Reichweite & Leads</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🎧</span>
+                            <span class="card-tag tag-arbeiter">Arbeiter-Aufgabe</span>
+                        </div>
+                        <h3>Rückführungs-Vorbereitung automatisieren</h3>
+                        <p>Automatische E-Mail/Telegram-Nachricht 48h vor der Session mit Vorbereitungstipps.</p>
+                        <ul class="idea-steps">
+                            <li>Vorbereitungs-Text schreiben</li>
+                            <li>In Telegram-Bot als Timer einbauen</li>
+                            <li>Checkliste: Ruhiger Raum, Wasser, Decke</li>
+                            <li>Meditationslink als Vorbereitung mitsenden</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPIRIT HEALING -->
+        <section class="page-section" id="healing">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">✨</span>
+                    <h2>Spirit <span class="gt">Healing</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <table class="price-table">
+                    <thead>
+                        <tr><th>Angebot</th><th>Format</th><th>Dauer</th><th>Preis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Spirit Healing Session</td><td>Zoom 1:1</td><td>60 Min</td><td>130 €</td></tr>
+                        <tr><td>Fernheilung / Energieübertragung</td><td>Telegram</td><td>30 Min</td><td>80 €</td></tr>
+                        <tr><td>Chakren-Reinigung & Balancing</td><td>Zoom 1:1</td><td>75 Min</td><td>150 €</td></tr>
+                        <tr><td>Aura-Reinigung</td><td>Zoom 1:1</td><td>45 Min</td><td>100 €</td></tr>
+                        <tr><td>Healing Circle (Gruppenhealing)</td><td>Zoom/Livestream</td><td>60 Min</td><td>25 € p.P.</td></tr>
+                        <tr><td>Intensiv-Healing Paket (4x)</td><td>Zoom 1:1</td><td>4x 60 Min</td><td>450 €</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🌅</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>Morgen-Healing Ritual (täglich)</h3>
+                        <p>Jeden Morgen um 7 Uhr eine 5-minütige Energie-Übertragung über Telegram Voice-Message – für Premium-Mitglieder.</p>
+                        <ul class="idea-steps">
+                            <li>Kurze Voice-Message aufnehmen (2-5 Min)</li>
+                            <li>Energetische Intention setzen</li>
+                            <li>In Premium-Telegram-Gruppe posten</li>
+                            <li>Mitglieder berichten über Erfahrungen</li>
+                        </ul>
+                        <span class="money">💰 Teil der 19€/Monat Membership</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🤝</span>
+                            <span class="card-tag tag-chef">Chef-Idee</span>
+                        </div>
+                        <h3>Kooperation mit Yoga-Studios</h3>
+                        <p>Biete dein Healing als Add-on nach Yoga-Kursen an – online oder hybrid. Win-Win für beide Seiten.</p>
+                        <ul class="idea-steps">
+                            <li>10 lokale/Online Yoga-Studios kontaktieren</li>
+                            <li>30-Min Healing nach der Yogastunde anbieten</li>
+                            <li>Revenue-Share: 70/30</li>
+                            <li>Neue Zielgruppe erschließen</li>
+                        </ul>
+                        <span class="money">💰 Neue Klientenquelle</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📋</span>
+                            <span class="card-tag tag-arbeiter">Arbeiter-Aufgabe</span>
+                        </div>
+                        <h3>Healing-Feedback System einrichten</h3>
+                        <p>Nach jeder Session automatisch einen kurzen Feedback-Fragebogen senden. Hilft bei Verbesserung und Testimonials.</p>
+                        <ul class="idea-steps">
+                            <li>Google Forms: 5 kurze Fragen erstellen</li>
+                            <li>Automatisch 24h nach Session senden (Bot)</li>
+                            <li>Positive Antworten als Testimonials nutzen</li>
+                            <li>Monatliche Auswertung für den Chef</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAKETE -->
+        <section class="page-section" id="pakete">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">📦</span>
+                    <h2>Premium <span class="gt">Pakete</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="ideas-grid">
+                    <div class="idea-card" style="border-color: rgba(251, 191, 36, 0.3);">
+                        <div class="card-top">
+                            <span class="card-icon">🌙</span>
+                            <span class="card-tag tag-tipp">Starter</span>
+                        </div>
+                        <h3>Erwachen – 249 €</h3>
+                        <p><s style="color: var(--text-muted);">305 €</s> Spare 56 €</p>
+                        <ul class="idea-steps">
+                            <li>1x Karma-Reading & Analyse</li>
+                            <li>1x Hypnose-Session</li>
+                            <li>1 Monat Telegram Premium</li>
+                            <li>Tägliche Heilimpulse</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card" style="border-color: rgba(139, 92, 246, 0.5); background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(192, 132, 252, 0.04));">
+                        <div class="card-top">
+                            <span class="card-icon">⭐</span>
+                            <span class="card-tag tag-beide">Empfohlen</span>
+                        </div>
+                        <h3>Befreiung – 799 €</h3>
+                        <p><s style="color: var(--text-muted);">950 €</s> Spare 151 €</p>
+                        <ul class="idea-steps">
+                            <li>2x Karma-Auflösung</li>
+                            <li>1x Rückführung</li>
+                            <li>2x Spirit Healing</li>
+                            <li>3 Monate Telegram Premium</li>
+                            <li>Alle Gruppen-Events inklusive</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card" style="border-color: rgba(251, 191, 36, 0.3);">
+                        <div class="card-top">
+                            <span class="card-icon">👑</span>
+                            <span class="card-tag tag-chef">VIP</span>
+                        </div>
+                        <h3>Seelenreise – 2.499 €</h3>
+                        <p>12 Wochen Intensiv-Begleitung</p>
+                        <ul class="idea-steps">
+                            <li>Wöchentliche 1:1 Sessions (Mix)</li>
+                            <li>Unlimitierter Telegram-Support</li>
+                            <li>Alle Gruppen-Events inklusive</li>
+                            <li>Persönlicher Heilungsplan</li>
+                            <li>Voice-Nachrichten Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDEEN FÜR DEN CHEF -->
+        <section class="page-section" id="ideen-chef">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">👑</span>
+                    <h2>Ideen für den <span class="gt">Chef</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="tip-box tip-gold">
+                    <span class="tip-icon">💡</span>
+                    <div>
+                        <h4>Deine Hauptrolle als Chef</h4>
+                        <p>Du bist das Gesicht und die Energie des Business. Dein Fokus: Sessions, Content, Vision. Alles andere kann delegiert werden!</p>
+                    </div>
+                </div>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📺</span>
+                            <span class="card-tag tag-chef">Wöchentlich</span>
+                        </div>
+                        <h3>Kostenlose Live-Sessions</h3>
+                        <p>Jeden Freitag 20 Uhr ein kostenloses 30-Min Live-Healing auf YouTube/Instagram. DER beste Lead-Magnet.</p>
+                        <ul class="idea-steps">
+                            <li>Thema der Woche festlegen</li>
+                            <li>Ankündigung Mo über alle Kanäle</li>
+                            <li>Live gehen mit einfachem Setup</li>
+                            <li>Am Ende: CTA zu Telegram & Paketen</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📚</span>
+                            <span class="card-tag tag-chef">Passives Einkommen</span>
+                        </div>
+                        <h3>Online-Kurse erstellen</h3>
+                        <p>Aufgezeichnete Kurse = einmal Arbeit, dauerhaft Einnahmen. Perfekt für Selbsthypnose oder Meditation.</p>
+                        <ul class="idea-steps">
+                            <li>Kurs in 6-8 Module aufteilen</li>
+                            <li>Pro Modul 20-30 Min Video aufnehmen</li>
+                            <li>Auf eigener Website oder Elopage hosten</li>
+                            <li>Durch Telegram & Livestreams bewerben</li>
+                        </ul>
+                        <span class="money">💰 199-349 € pro Kurs (unbegrenzt)</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🏫</span>
+                            <span class="card-tag tag-chef">Langfristig</span>
+                        </div>
+                        <h3>Ausbildung für Heiler anbieten</h3>
+                        <p>Sobald du genug Erfahrung & Reputation hast: Bilde andere Heiler aus. Höchstes Einkommenspotenzial.</p>
+                        <ul class="idea-steps">
+                            <li>12-Wochen Ausbildungsprogramm</li>
+                            <li>Zertifikat für Absolventen</li>
+                            <li>Wöchentliche Zoom-Calls + Telegram</li>
+                            <li>Absolventen als Partner/Affiliates</li>
+                        </ul>
+                        <span class="money">💰 2.000-5.000 € pro Teilnehmer</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🎁</span>
+                            <span class="card-tag tag-chef">Marketing</span>
+                        </div>
+                        <h3>Gratis Meditation als Lead-Magnet</h3>
+                        <p>Eine professionelle 15-Min Meditation als kostenlosen Download anbieten – im Tausch gegen die E-Mail-Adresse.</p>
+                        <ul class="idea-steps">
+                            <li>Meditation aufnehmen (z.B. Chakren-Reinigung)</li>
+                            <li>Landing-Page erstellen</li>
+                            <li>E-Mail-Sequenz aufsetzen (5 Mails)</li>
+                            <li>In allen Kanälen bewerben</li>
+                        </ul>
+                        <span class="money">💰 E-Mail-Liste aufbauen → Sales</span>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🤳</span>
+                            <span class="card-tag tag-chef">Täglich 10 Min</span>
+                        </div>
+                        <h3>TikTok / Reels Content</h3>
+                        <p>Kurze 30-60 Sekunden Videos mit spirituellen Tipps, Erklärungen oder Mini-Meditationen. Viral-Potenzial!</p>
+                        <ul class="idea-steps">
+                            <li>3-5 Videos pro Woche aufnehmen</li>
+                            <li>Themen: „Wusstest du, dass…", Karma-Fakten</li>
+                            <li>Mystische Musik + Untertitel</li>
+                            <li>Bio-Link zu Telegram & Website</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🏝️</span>
+                            <span class="card-tag tag-chef">Premium</span>
+                        </div>
+                        <h3>Online-Retreats veranstalten</h3>
+                        <p>3-Tage Online-Retreat über Zoom: Intensiv-Programm mit allen 4 Bereichen. High-Ticket-Event.</p>
+                        <ul class="idea-steps">
+                            <li>Fr-So Programm planen (je 3-4 Stunden)</li>
+                            <li>Kombination: Meditation, Hypnose, Healing</li>
+                            <li>Max. 15 Teilnehmer für Exklusivität</li>
+                            <li>Inklusive Workbook & Nachbetreuung</li>
+                        </ul>
+                        <span class="money">💰 399-599 € × 15 = 6.000-9.000 €</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDEEN FÜR ARBEITER -->
+        <section class="page-section" id="ideen-arbeiter">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🛠️</span>
+                    <h2>Ideen & Aufgaben für <span class="gt">Arbeiter / Assistenz</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="tip-box tip-green">
+                    <span class="tip-icon">💚</span>
+                    <div>
+                        <h4>Deine Rolle als Assistent:in</h4>
+                        <p>Du bist das Rückgrat des Business. Ohne dich kann der Chef sich nicht auf seine Kernarbeit konzentrieren. Du hältst alles am Laufen!</p>
+                    </div>
+                </div>
+
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📅</span>
+                            <span class="card-tag tag-arbeiter">Täglich</span>
+                        </div>
+                        <h3>Tagesorganisation</h3>
+                        <p>Sorge dafür, dass der Tag reibungslos läuft – Termine, Nachrichten, Vorbereitung.</p>
+                        <ul class="idea-steps">
+                            <li>Morgens: Kalender checken, Zoom-Links vorbereiten</li>
+                            <li>Telegram-Nachrichten beantworten</li>
+                            <li>Affirmation des Tages in Gruppen posten</li>
+                            <li>Abends: Nächsten Tag vorbereiten</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🎨</span>
+                            <span class="card-tag tag-arbeiter">Kreativ</span>
+                        </div>
+                        <h3>Social Media Grafiken</h3>
+                        <p>Erstelle ansprechende Grafiken für Instagram, Telegram und die Website mit Canva.</p>
+                        <ul class="idea-steps">
+                            <li>Canva-Vorlagen für Posts erstellen</li>
+                            <li>Wöchentlich 5-7 Grafiken vorbereiten</li>
+                            <li>Zitate, Angebotsbilder, Event-Ankündigungen</li>
+                            <li>Einheitliches Design (lila/mystisch)</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">💬</span>
+                            <span class="card-tag tag-arbeiter">Community</span>
+                        </div>
+                        <h3>Telegram-Gruppen moderieren</h3>
+                        <p>Halte die Community aktiv, beantworte Fragen und sorge für eine positive Atmosphäre.</p>
+                        <ul class="idea-steps">
+                            <li>Neue Mitglieder begrüßen</li>
+                            <li>Spam & unpassende Inhalte entfernen</li>
+                            <li>Diskussionen anregen (Fragen stellen)</li>
+                            <li>Probleme an den Chef weiterleiten</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📊</span>
+                            <span class="card-tag tag-arbeiter">Analyse</span>
+                        </div>
+                        <h3>Monatliche Reports erstellen</h3>
+                        <p>Überblick über Buchungen, Einnahmen, Gruppenwachstum und Feedback – damit der Chef Entscheidungen treffen kann.</p>
+                        <ul class="idea-steps">
+                            <li>Google Sheets Template anlegen</li>
+                            <li>Buchungen & Einnahmen tracken</li>
+                            <li>Telegram-Mitglieder Wachstum</li>
+                            <li>Top 3 Feedbacks zusammenfassen</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">🤖</span>
+                            <span class="card-tag tag-arbeiter">Technik</span>
+                        </div>
+                        <h3>Telegram Bot pflegen</h3>
+                        <p>Den Bot aktuell halten – neue Angebote einpflegen, Texte aktualisieren, Bugs fixen.</p>
+                        <ul class="idea-steps">
+                            <li>Wöchentlich: Neue Affirmationen hinzufügen</li>
+                            <li>Monatlich: Preise & Angebote aktualisieren</li>
+                            <li>Bot-Antworten auf häufige Fragen anpassen</li>
+                            <li>Neue Funktionen testen</li>
+                        </ul>
+                    </div>
+
+                    <div class="idea-card">
+                        <div class="card-top">
+                            <span class="card-icon">📧</span>
+                            <span class="card-tag tag-arbeiter">Kunden-Care</span>
+                        </div>
+                        <h3>Kunden-Follow-Up System</h3>
+                        <p>Nach jeder Session den Klienten kontaktieren – zeigt Wertschätzung und fördert Wiederbuchungen.</p>
+                        <ul class="idea-steps">
+                            <li>24h nach Session: „Wie geht es dir?"</li>
+                            <li>7 Tage später: Check-in + neues Angebot</li>
+                            <li>30 Tage später: Erinnerung an Folge-Session</li>
+                            <li>Alles über Telegram-Bot automatisieren</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAGESABLAUF -->
+        <section class="page-section" id="tagesablauf">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">📅</span>
+                    <h2>Beispiel <span class="gt">Tagesablauf</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="role-grid">
+                    <div class="role-box" style="border-color: rgba(251, 191, 36, 0.2);">
+                        <h3>👑 Chef – Tagesablauf</h3>
+                        <ul class="task-list">
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>07:00</strong> – Morgen-Meditation & Energie aufbauen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>08:00</strong> – Voice-Healing für Premium-Telegram</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>09:00</strong> – 1. Session (Zoom 1:1)</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>10:30</strong> – Pause & Energie tanken</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>11:00</strong> – 2. Session (Zoom 1:1)</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>12:30</strong> – Mittagspause</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>14:00</strong> – Content erstellen (Reels/TikTok)</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>15:00</strong> – 3. Session oder Gruppen-Session</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>16:30</strong> – Strategie & Business-Planung</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>17:30</strong> – Feierabend & Selbstfürsorge</li>
+                        </ul>
+                    </div>
+
+                    <div class="role-box" style="border-color: rgba(52, 211, 153, 0.2);">
+                        <h3>🛠️ Arbeiter – Tagesablauf</h3>
+                        <ul class="task-list">
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>08:00</strong> – Affirmation in Telegram posten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>08:30</strong> – Nachrichten & Anfragen beantworten</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>09:30</strong> – Social Media Posts planen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>10:30</strong> – Grafiken in Canva erstellen</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>11:30</strong> – Termine koordinieren & Zoom-Links</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>12:00</strong> – Mittagspause</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>13:00</strong> – Telegram-Gruppen moderieren</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>14:00</strong> – Bot aktualisieren / Technik</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>15:00</strong> – Follow-Up Nachrichten senden</li>
+                            <li><span class="task-check" onclick="this.classList.toggle('checked')">✓</span> <strong>16:00</strong> – Feedback sammeln & dokumentieren</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKETING -->
+        <section class="page-section" id="marketing">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">📣</span>
+                    <h2>Marketing <span class="gt">Strategie</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="accordion-item open">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🎯 Content Marketing – Reichweite aufbauen</span>
+                        <span class="accordion-toggle">+</span>
+                    </button>
+                    <div class="accordion-body" style="max-height: 400px;">
+                        <div class="accordion-body-inner">
+                            <ul>
+                                <li><strong>TikTok/Reels:</strong> 3-5 kurze Videos pro Woche mit spirituellen Tipps</li>
+                                <li><strong>YouTube:</strong> Wöchentliche längere Videos (Rückführungs-Stories, Erklärungen)</li>
+                                <li><strong>Podcast:</strong> Bi-wöchentlich, Hypnose-Audios & Interviews</li>
+                                <li><strong>Blog:</strong> SEO-optimierte Artikel (Hypnose, Karma, Reinkarnation)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📱 Telegram Funnel – Kostenlos → Premium → 1:1</span>
+                        <span class="accordion-toggle">+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <ul>
+                                <li><strong>Stufe 1:</strong> Kostenlose Gruppe (Affirmationen, Community, Live-Meditationen)</li>
+                                <li><strong>Stufe 2:</strong> Premium-Gruppe 19€/Mo (exklusive Healings, Voice-Messages)</li>
+                                <li><strong>Stufe 3:</strong> 1:1 Sessions & Pakete (über Bot buchbar)</li>
+                                <li><strong>Stufe 4:</strong> VIP-Betreuung (2.499€ Seelenreise-Paket)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>🤝 Kooperationen & Partnerschaften</span>
+                        <span class="accordion-toggle">+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <ul>
+                                <li><strong>Yoga-Studios:</strong> Healing als Add-on nach Yoga-Kursen</li>
+                                <li><strong>Coaches:</strong> Gegenseitige Empfehlungen & gemeinsame Events</li>
+                                <li><strong>Podcasts:</strong> Als Gast in spirituellen Podcasts auftreten</li>
+                                <li><strong>Affiliate:</strong> Kristalle, Räucherstäbchen, Bücher empfehlen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>📧 E-Mail Marketing – Automatisiert verkaufen</span>
+                        <span class="accordion-toggle">+</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <ul>
+                                <li><strong>Lead-Magnet:</strong> Gratis Meditation im Tausch gegen E-Mail</li>
+                                <li><strong>Welcome-Serie:</strong> 5 E-Mails über 2 Wochen (Vertrauen aufbauen)</li>
+                                <li><strong>Newsletter:</strong> Wöchentlich mit wertvollen Inhalten + Angeboten</li>
+                                <li><strong>Launch-Mails:</strong> Für neue Kurse, Events oder Pakete</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WACHSTUMSPLAN -->
+        <section class="page-section" id="wachstum">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">📈</span>
+                    <h2>Wachstums<span class="gt">plan</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Phase 1: Launch</h4>
+                        <div class="time-sub">Monat 1–3</div>
+                        <p>Website live, Telegram-Gruppen aufsetzen, erste kostenlose Livestreams starten. 5-10 Klienten für 1:1 Sessions gewinnen.</p>
+                        <div class="time-goal">🎯 Ziel: 1.500–3.000 €/Monat</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Phase 2: Wachstum</h4>
+                        <div class="time-sub">Monat 4–6</div>
+                        <p>Erste Gruppen-Sessions & Workshops starten. Telegram Premium-Gruppe auf 50+ Mitglieder bringen. Ersten digitalen Kurs launchen.</p>
+                        <div class="time-goal">🎯 Ziel: 4.000–7.000 €/Monat</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Phase 3: Skalierung</h4>
+                        <div class="time-sub">Monat 7–12</div>
+                        <p>Alle Pakete aktiv, 200+ Telegram-Mitglieder, regelmäßige Livestreams, erste Affiliate-Einnahmen, eventuell Assistent:in einstellen.</p>
+                        <div class="time-goal">🎯 Ziel: 8.000–15.000 €/Monat</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Phase 4: Expansion</h4>
+                        <div class="time-sub">Jahr 2</div>
+                        <p>Ausbildung anderer Heiler anbieten, Retreat-Events (Online & Offline), App-Entwicklung, mehrere Mitarbeiter:innen.</p>
+                        <div class="time-goal">🎯 Ziel: 15.000–30.000 €/Monat</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOLS -->
+        <section class="page-section" id="tools">
+            <div class="container">
+                <div class="sec-title">
+                    <span class="emoji">🔧</span>
+                    <h2>Tools & <span class="gt">Technik</span></h2>
+                    <span class="line"></span>
+                </div>
+
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Wofür</th>
+                            <th>Wer nutzt es</th>
+                            <th>Kosten</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Zoom</td><td>1:1 & Gruppen-Sessions</td><td>👑 Chef</td><td>Ab 13€/Monat</td></tr>
+                        <tr><td>Telegram</td><td>Community & Support</td><td>👑 + 🛠️</td><td>Kostenlos</td></tr>
+                        <tr><td>Canva</td><td>Grafiken & Workbooks</td><td>🛠️ Arbeiter</td><td>Kostenlos / 12€</td></tr>
+                        <tr><td>Cal.com</td><td>Terminbuchung</td><td>🛠️ Arbeiter</td><td>Kostenlos</td></tr>
+                        <tr><td>Stripe</td><td>Zahlungsabwicklung</td><td>👑 Chef</td><td>1,4% + 0,25€</td></tr>
+                        <tr><td>Google Sheets</td><td>Tracking & Reports</td><td>🛠️ Arbeiter</td><td>Kostenlos</td></tr>
+                        <tr><td>Make.com</td><td>Automatisierungen</td><td>🛠️ Arbeiter</td><td>Kostenlos / 9€</td></tr>
+                        <tr><td>OBS Studio</td><td>Livestreaming</td><td>👑 Chef</td><td>Kostenlos</td></tr>
+                        <tr><td>Audacity</td><td>Audio-Bearbeitung</td><td>🛠️ Arbeiter</td><td>Kostenlos</td></tr>
+                        <tr><td>MailerLite</td><td>E-Mail Marketing</td><td>🛠️ Arbeiter</td><td>Kostenlos (< 1000)</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="tip-box tip-blue">
+                    <span class="tip-icon">💡</span>
+                    <div>
+                        <h4>Startkosten minimal halten!</h4>
+                        <p>Fast alle Tools sind kostenlos oder haben einen Free-Tier. Du kannst mit unter 20€/Monat starten. Investiere erst, wenn du Einnahmen hast.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="konzept-footer">
+            <div class="container">
+                <p>✦ SoulLight Academy – Business Konzept & Ideenguide</p>
+                <p style="margin-top: 8px;">Erstellt mit 💜 | © 2026</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- PRINT BUTTON -->
+    <button class="print-btn" onclick="window.print()">🖨️ Drucken / PDF</button>
+
+    <script>
+        // Sidebar Toggle (Mobile)
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Close sidebar on link click (mobile)
+        sidebar.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll('.page-section, .page-header');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    sidebarLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(section => {
+            if (section.id) observer.observe(section);
+        });
+
+        // Accordion
+        function toggleAccordion(btn) {
+            const item = btn.closest('.accordion-item');
+            const body = item.querySelector('.accordion-body');
+            const isOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.accordion-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.accordion-body').style.maxHeight = '0';
+            });
+
+            // Open clicked if was closed
+            if (!isOpen) {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
+        // Animate elements on scroll
+        const animElements = document.querySelectorAll('.idea-card, .tip-box, .role-box, .stat-item, .timeline-item');
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            scrollObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
