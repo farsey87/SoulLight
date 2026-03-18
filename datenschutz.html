@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung – SoulLight Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-light: #a78bfa;
+            --bg: #0a0a1a;
+            --bg-card: #12122a;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --gradient: linear-gradient(135deg, #8b5cf6, #c084fc, #f0abfc);
+            --font-h: 'Playfair Display', Georgia, serif;
+            --font: 'Inter', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10,10,26,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139,92,246,0.1);
+            padding: 14px 0;
+        }
+        .topbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .topbar-logo {
+            text-decoration: none;
+            font-family: var(--font-h);
+            font-size: 1.2rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .topbar-logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .topbar-back {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .topbar-back:hover { color: var(--primary-light); }
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .page-title {
+            font-family: var(--font-h);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 8px;
+        }
+        .gt {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(139,92,246,0.1);
+        }
+        h2 {
+            font-family: var(--font-h);
+            font-size: 1.4rem;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: var(--primary-light);
+        }
+        h3 {
+            font-size: 1.05rem;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+        p, li {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        li { margin-bottom: 6px; }
+        a { color: var(--primary-light); }
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(139,92,246,0.08);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        .footer a:hover { color: var(--primary-light); }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="topbar-logo">✦ <span>SoulLight</span></a>
+            <a href="index.html" class="topbar-back">← Zurück zur Startseite</a>
+        </div>
+    </nav>
+
+    <main class="content">
+        <h1 class="page-title">Datenschutz<span class="gt">erklärung</span></h1>
+        <p class="page-subtitle">Stand: März 2026 – Wir nehmen den Schutz deiner persönlichen Daten sehr ernst.</p>
+
+        <h2>1. Verantwortliche Stelle</h2>
+        <p>
+            SoulLight Academy<br>
+            [Dein vollständiger Name]<br>
+            [Straße und Hausnummer]<br>
+            [PLZ Ort]<br>
+            E-Mail: hello@soullight-academy.de
+        </p>
+
+        <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+        <p>Beim Besuch unserer Website werden automatisch folgende Informationen erfasst:</p>
+        <ul>
+            <li>IP-Adresse des anfragenden Rechners</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Name und URL der abgerufenen Seite</li>
+            <li>Verwendeter Browser und Betriebssystem</li>
+            <li>Referrer-URL (zuvor besuchte Seite)</li>
+        </ul>
+        <p>Diese Daten werden ausschließlich zur Sicherstellung eines störungsfreien Betriebs der Website und zur Verbesserung unseres Angebots ausgewertet. Eine Zuordnung zu bestimmten Personen ist nicht möglich.</p>
+
+        <h2>3. Kontaktaufnahme</h2>
+        <p>Wenn du uns über das Kontaktformular, per E-Mail oder Telegram kontaktierst, werden die von dir mitgeteilten Daten (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung deiner Anfrage gespeichert. Diese Daten geben wir nicht ohne deine Einwilligung weiter.</p>
+
+        <h2>4. Zoom-Sessions</h2>
+        <p>Für die Durchführung unserer Online-Sessions nutzen wir den Dienst <strong>Zoom</strong> (Zoom Video Communications, Inc.). Bei der Nutzung von Zoom werden folgende Daten verarbeitet:</p>
+        <ul>
+            <li>Name und E-Mail-Adresse (bei Anmeldung)</li>
+            <li>Audio- und Videodaten während der Session</li>
+            <li>Chat-Nachrichten innerhalb der Session</li>
+            <li>Technische Verbindungsdaten</li>
+        </ul>
+        <p>Sessions werden <strong>nicht</strong> ohne ausdrückliche Einwilligung aufgezeichnet. Weitere Informationen findest du in der <a href="https://zoom.us/de/privacy" target="_blank">Datenschutzerklärung von Zoom</a>.</p>
+
+        <h2>5. Telegram</h2>
+        <p>Wir nutzen <strong>Telegram</strong> für Community-Gruppen und Kommunikation. Bei der Nutzung von Telegram werden dein Telegram-Benutzername und die Nachrichten verarbeitet. Bitte beachte die <a href="https://telegram.org/privacy" target="_blank">Datenschutzerklärung von Telegram</a>.</p>
+        <p>Nachrichten in unseren Telegram-Gruppen sind für alle Gruppenmitglieder sichtbar. Persönliche 1:1 Nachrichten werden vertraulich behandelt.</p>
+
+        <h2>6. Zahlungsabwicklung</h2>
+        <p>Für die Zahlungsabwicklung nutzen wir <strong>Stripe</strong>. Dabei werden Zahlungsdaten direkt von Stripe verarbeitet und nicht auf unseren Servern gespeichert. Weitere Informationen findest du in der <a href="https://stripe.com/de/privacy" target="_blank">Datenschutzerklärung von Stripe</a>.</p>
+
+        <h2>7. Cookies</h2>
+        <p>Unsere Website verwendet keine Tracking-Cookies. Es werden lediglich technisch notwendige Session-Daten im Browser gespeichert (sessionStorage), die beim Schließen des Browsers automatisch gelöscht werden.</p>
+
+        <h2>8. Hosting</h2>
+        <p>Diese Website wird über <strong>GitHub Pages</strong> gehostet. GitHub kann bei Seitenaufrufen technische Daten wie IP-Adressen erfassen. Weitere Informationen findest du in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Datenschutzerklärung von GitHub</a>.</p>
+
+        <h2>9. Deine Rechte</h2>
+        <p>Du hast jederzeit folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
+        <ul>
+            <li><strong>Auskunft:</strong> Du kannst Auskunft über deine bei uns gespeicherten Daten verlangen.</li>
+            <li><strong>Berichtigung:</strong> Du kannst die Korrektur unrichtiger Daten verlangen.</li>
+            <li><strong>Löschung:</strong> Du kannst die Löschung deiner Daten verlangen.</li>
+            <li><strong>Einschränkung:</strong> Du kannst die Einschränkung der Verarbeitung verlangen.</li>
+            <li><strong>Widerspruch:</strong> Du kannst der Verarbeitung deiner Daten widersprechen.</li>
+            <li><strong>Datenübertragbarkeit:</strong> Du kannst verlangen, dass deine Daten an einen anderen Verantwortlichen übertragen werden.</li>
+        </ul>
+        <p>Wende dich hierzu an: <a href="mailto:hello@soullight-academy.de">hello@soullight-academy.de</a></p>
+
+        <h2>10. Vertraulichkeit der Sessions</h2>
+        <p>Alle Inhalte aus Einzel- und Gruppen-Sessions (Hypnose, Karmaauflösung, Rückführung, Spirit Healing) werden streng vertraulich behandelt. Wir geben keinerlei persönliche Informationen aus Sessions an Dritte weiter. Testimonials werden nur mit ausdrücklicher schriftlicher Einwilligung veröffentlicht.</p>
+
+        <h2>11. Änderungen</h2>
+        <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an geänderte Rechtslagen oder Änderungen unserer Dienstleistungen anzupassen. Die aktuelle Version findest du stets auf dieser Seite.</p>
+
+        <h2>12. Kontakt für Datenschutzfragen</h2>
+        <p>
+            Bei Fragen zum Datenschutz erreichst du uns unter:<br>
+            E-Mail: <a href="mailto:hello@soullight-academy.de">hello@soullight-academy.de</a><br>
+            Telegram: <a href="https://t.me/SoulLightAcademy" target="_blank">@SoulLightAcademy</a>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 SoulLight Academy. Alle Rechte vorbehalten.</p>
+        <p style="margin-top: 8px;">
+            <a href="index.html">Startseite</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="impressum.html">Impressum</a>
+        </p>
+    </footer>
+</body>
+</html>
